@@ -1,0 +1,14 @@
+.price-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.price-details > p {
+  margin-right: 10px;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
