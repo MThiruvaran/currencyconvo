@@ -21,15 +21,7 @@ const App = () => {
   const [currency, setCurrency] = useState("INR");
   const [currencyList, setCurrencyList] = useState([]);
   const [rate, setRate] = useState(1);
-  const convertOptions = {
-    method: "GET",
-    url: "https://currency-converter13.p.rapidapi.com/convert",
-    params: { from: "INR", to: currency },
-    headers: {
-      "x-rapidapi-host": "currency-converter13.p.rapidapi.com",
-      "x-rapidapi-key": "93318b8d4dmsh108d8f469971d54p1f040fjsnc7700b6cc894",
-    },
-  };
+
   const data = [
     {
       title: "Silver",
@@ -59,15 +51,7 @@ const App = () => {
       setCurrencyList(res.data);
     });
   }, []);
-  useEffect(() => {
-    if (currency === "INR") {
-      setRate(1);
-    } else {
-      axios.request(convertOptions).then((res) => {
-        setRate(res.data.amount);
-      });
-    }
-  }, [currency]);
+
   return (
     <div>
       <div className="navbar">
@@ -102,7 +86,6 @@ const App = () => {
               description={item.description}
               price={item.price}
               currencyType={currency}
-              rate={rate}
             />
           </Col>
         ))}
